@@ -1,0 +1,17 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="SampleAnimations.LandingPage">
+
+	<StackLayout BackgroundColor="Teal">
+	
+		<Label Text="XanimationManager" VerticalOptions="Start" HorizontalOptions="Center" />
+
+		<Button x:Name="DropButton" Text="Drop" Clicked="DropButton_OnClick" />
+		<Button x:Name="EasingInButton" Text="Easing In" Clicked="EasingButton_OnClick" />
+		<Button x:Name="EasingOutButton" Text="Easing Out" Clicked="EasingButton_OnClick" />
+		<Button x:Name="EasingInOutButton" Text="Easing InOut" Clicked="EasingButton_OnClick" />
+
+	</StackLayout>
+	
+</ContentPage>
