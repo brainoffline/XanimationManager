@@ -18,7 +18,7 @@ namespace SampleAnimations
 
 		private async void AnimateBoxes(int direction)
 		{
-			var width = Width - 40;
+			var width = Layout.Width - 80;
 
 			new Animation(x => LinearBox.TranslationX = x, 0, width, Easing.Linear).Commit(LinearBox, "", 16, 2000);
 			new Animation(x => QuadraticBox.TranslationX = x, 0, width, direction == 0 ? Easings.QuadraticIn : direction == 1 ? Easings.QuadraticInOut : Easings.QuadraticOut).Commit(QuadraticBox, "", 16, 2000);

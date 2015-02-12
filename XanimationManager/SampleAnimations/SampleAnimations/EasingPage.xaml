@@ -20,7 +20,7 @@
 	</ContentPage.Resources>
 
 	<Grid>
-		<StackLayout Orientation="Vertical" >
+		<StackLayout Orientation="Vertical" Padding="20,10,20,0" x:Name="Layout" >
 			<Label Text="Easing" HorizontalOptions="Center" FontSize="32" />
 
 			<Grid>
