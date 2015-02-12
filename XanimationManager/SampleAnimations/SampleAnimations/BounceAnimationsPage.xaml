@@ -1,0 +1,75 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="SampleAnimations.BounceAnimationsPage">
+	<ContentPage.Resources>
+		<ResourceDictionary>
+			<Style x:Key="BoxStyle" TargetType="BoxView" >
+				<Setter Property="WidthRequest" Value="40" />
+				<Setter Property="HeightRequest" Value="40" />
+				<Setter Property="Color" Value="Red" />
+				<Setter Property="HorizontalOptions" Value="Center" />
+				<Setter Property="VerticalOptions" Value="Center" />
+			</Style>
+
+			<Style x:Key="LabelStyle" TargetType="Label">
+				<Setter Property="HorizontalOptions" Value="Center" />
+			</Style>
+		</ResourceDictionary>
+	</ContentPage.Resources>
+
+	<Grid>
+		<StackLayout Orientation="Vertical" Padding="20,10,20,0" x:Name="Layout" >
+			<Label Text="Bounce Animations" HorizontalOptions="Center" FontSize="32" />
+
+			<Grid>
+				<BoxView x:Name="BounceInBox" Style="{StaticResource BoxStyle}" HorizontalOptions="Start" />
+				<Label Text="Bounce In" Style="{StaticResource LabelStyle}" />
+			</Grid>
+			<Grid>
+				<BoxView x:Name="BounceOutBox" Style="{StaticResource BoxStyle}" HorizontalOptions="Start" />
+				<Label Text="Bounce Out" Style="{StaticResource LabelStyle}" />
+			</Grid>
+
+			<Grid>
+				<BoxView x:Name="BounceInDownBox" Style="{StaticResource BoxStyle}" />
+				<Label Text="Bounce In Down" Style="{StaticResource LabelStyle}" />
+			</Grid>
+			<Grid>
+				<BoxView x:Name="BounceInLeftBox" Style="{StaticResource BoxStyle}" HorizontalOptions="Start" />
+				<Label Text="Bounce In Left" Style="{StaticResource LabelStyle}" />
+			</Grid>
+			<Grid>
+				<BoxView x:Name="BounceInRightBox" Style="{StaticResource BoxStyle}" HorizontalOptions="End" />
+				<Label Text="Bounce In Right" Style="{StaticResource LabelStyle}" />
+			</Grid>
+			<Grid>
+				<BoxView x:Name="BounceInUpBox" Style="{StaticResource BoxStyle}" />
+				<Label Text="Bounce InUp" Style="{StaticResource LabelStyle}" />
+			</Grid>
+
+			<Grid>
+				<Grid.ColumnDefinitions>
+					<ColumnDefinition/>
+					<ColumnDefinition/>
+				</Grid.ColumnDefinitions>
+				<Grid.RowDefinitions>
+					<RowDefinition/>
+					<RowDefinition/>
+				</Grid.RowDefinitions>
+
+				<BoxView x:Name="CircleInTopLeftBox" Style="{StaticResource BoxStyle}"  Grid.Row="0" Grid.Column="0" />
+				<BoxView x:Name="CircleInTopRightBox" Style="{StaticResource BoxStyle}" Grid.Row="0" Grid.Column="1" />
+				<BoxView x:Name="CircleInBottomLeftBox" Style="{StaticResource BoxStyle}" Grid.Row="1" Grid.Column="0" />
+				<BoxView x:Name="CircleInBottomRightBox" Style="{StaticResource BoxStyle}" Grid.Row="1" Grid.Column="1" />
+				<Label Text="Circle In" Style="{StaticResource LabelStyle}" Grid.ColumnSpan="2" Grid.RowSpan="2" VerticalOptions="Center" />
+			</Grid>
+
+		</StackLayout>
+
+		<Button Text="Begin"
+				VerticalOptions="End"
+				Clicked="BeginButton_OnClicked" />
+	</Grid>
+
+</ContentPage>

@@ -13,8 +13,86 @@ namespace Brain
     }
 
 
+	public enum CircleDirection
+	{
+		TopLeft, TopRight, BottomRight, BottomLeft
+	}
 
-    public class BounceInAnimation : AnimationDefinition
+	public class CircleInAnimation : AnimationDefinition
+	{
+		public CircleDirection FromDirection { get; set; }
+		public ZDirection FromZDirection { get; set; }
+		public double Distance { get; set; }
+		private double DistanceX { get; set; }
+		private double DistanceY { get; set; }
+
+
+		public CircleInAnimation()
+		{
+			DurationMS = 400;
+			OpacityFromZero = true;
+			FromDirection = CircleDirection.BottomLeft;
+			FromZDirection = ZDirection.Away;
+			Distance = 200;
+			DistanceX = 0;
+			DistanceY = 0;
+		}
+
+		public override Animation CreateAnimation(VisualElement element)
+		{
+			var translation = GetTranslation(element);
+			var animation = new Animation();
+
+			if (FromZDirection != ZDirection.Steady)
+			{
+				animation.WithConcurrent(
+					f => element.Scale = f,
+					(FromZDirection == ZDirection.Away ? 0.3 : 2.0), 1,
+					Easings.BackOut, 0, 1);
+			};
+			animation.WithConcurrent(
+				(f) => element.Opacity = f,
+				0, 1,
+				null,
+				0, 0.25);
+
+			switch (FromDirection)
+			{
+				case CircleDirection.TopLeft:
+					DistanceX = Distance * -0.5;
+					DistanceY = -Distance;
+					break;
+				case CircleDirection.TopRight:
+					DistanceX = Distance * 0.5;
+					DistanceY = -Distance;
+					break;
+				case CircleDirection.BottomLeft:
+					DistanceX = Distance * -0.5;
+					DistanceY = Distance;
+					break;
+				case CircleDirection.BottomRight:
+					DistanceX = Distance * 0.5;
+					DistanceY = Distance;
+					break;
+			}
+
+			animation.WithConcurrent(
+				(f) => element.TranslationX = f,
+				element.TranslationX + DistanceX, element.TranslationX,
+				Easings.QuinticOut,
+				0, 0.7);
+
+			animation.WithConcurrent(
+				(f) => element.TranslationY = f,
+				element.TranslationY + DistanceY, element.TranslationY,
+				Easings.BackOut,
+				0, 1);
+
+			return animation;
+		}
+	}
+
+	public class BounceInAnimation : AnimationDefinition
     {
         public ZDirection FromDirection { get; set; }
         public double DistanceX { get; set; }
@@ -39,7 +117,7 @@ namespace Brain
                 animation.WithConcurrent(
                     f => element.Scale = f, 
                     (FromDirection == ZDirection.Away ? 0.3 : 2.0), 1, 
-                    Easing.SpringOut, 0, 1);
+                    Easings.BackOut, 0, 1);
             };
             animation.WithConcurrent(
                 (f) => element.Opacity = f,
@@ -52,7 +130,7 @@ namespace Brain
                 animation.WithConcurrent(
                     (f) => element.TranslationX = f,
                     element.TranslationX + DistanceX, element.TranslationX,
-                    Easing.SpringOut,
+                    Easings.BackOut,
                     0, 1);
             }
             if (Math.Abs(DistanceY) > 0)
@@ -60,7 +138,7 @@ namespace Brain
                 animation.WithConcurrent(
                     (f) => element.TranslationY = f,
                     element.TranslationY + DistanceY, element.TranslationY,
-                    Easing.SpringOut,
+                    Easings.BackOut,
                     0, 1);
             }
 
@@ -157,14 +235,14 @@ namespace Brain
                 animation.WithConcurrent(
                     (f) => element.Scale = f,
                     1, (ToDirection == ZDirection.Away ? 0.3 : 2.0),
-                    Easing.SpringIn, 0, 1);
+                    Easings.BackIn, 0, 1);
             }
             if (Math.Abs(DistanceX) > 0)
             {
                 animation.WithConcurrent(
                     (f) => element.TranslationX = f,
                     element.TranslationX, element.TranslationX + DistanceX,
-                    Easing.SpringIn,
+                    Easings.BackIn,
                     0, 1);
             }
             if (Math.Abs(DistanceY) > 0)
@@ -172,7 +250,7 @@ namespace Brain
                 animation.WithConcurrent(
                     (f) => element.TranslationX = f,
                     element.TranslationY, element.TranslationY + DistanceY,
-                    Easing.SpringIn,
+                    Easings.BackIn,
                     0, 1);
             }
 

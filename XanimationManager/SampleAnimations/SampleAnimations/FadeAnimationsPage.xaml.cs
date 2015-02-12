@@ -16,11 +16,15 @@ namespace SampleAnimations
 			InitializeComponent();
 		}
 
+		bool animating;
 		public async void BeginButton_OnClicked(object sender, EventArgs args)
 		{
+			if (animating) return;
+			animating = true;
+
 			var tasks = new List<Task> {
-				FadeInBox.Animate(new FadeInAnimation { DurationMS = 2000 }),
-				FadeOutBox.Animate(new FadeOutAnimation {DurationMS = 2000 }),
+				FadeInBox.Animate(new FadeInAnimation()),
+				FadeOutBox.Animate(new FadeOutAnimation()),
 
 				FadeInDownBox.Animate(new FadeInDownAnimation ()),
 				FadeInLeftBox.Animate(new FadeInLeftAnimation ()),
@@ -38,6 +42,8 @@ namespace SampleAnimations
 			FadeInLeftBox.ClearTransforms();
 			FadeInRightBox.ClearTransforms();
 			FadeInUpBox.ClearTransforms();
+
+			animating = false;
 		}
 
 	}

@@ -40,6 +40,17 @@ namespace SampleAnimations
 			FadeButton.ClearTransforms();
 		}
 
+		public async void BounceButton_OnClick(object sender, EventArgs args)
+		{
+			await BounceButton.Animate(new BounceOutRightAnimation());
+
+			await Navigation.PushAsync(new BounceAnimationsPage());
+
+			await Task.Delay(2000);
+
+			BounceButton.ClearTransforms();
+		}
+
 		public async void FlipButton_OnClick(object sender, EventArgs args)
 		{
 			await FlipButton.Animate(new FlipOutXAnimation());

@@ -5,10 +5,10 @@
 	<ContentPage.Resources>
 		<ResourceDictionary>
 			<Style x:Key="BoxStyle" TargetType="BoxView" >
-				<Setter Property="WidthRequest" Value="20" />
-				<Setter Property="HeightRequest" Value="20" />
+				<Setter Property="WidthRequest" Value="40" />
+				<Setter Property="HeightRequest" Value="40" />
 				<Setter Property="Color" Value="Red" />
-				<Setter Property="HorizontalOptions" Value="Start" />
+				<Setter Property="HorizontalOptions" Value="Center" />
 				<Setter Property="VerticalOptions" Value="Center" />
 			</Style>
 
@@ -36,11 +36,11 @@
 				<Label Text="Fade In Down" Style="{StaticResource LabelStyle}" />
 			</Grid>
 			<Grid>
-				<BoxView x:Name="FadeInLeftBox" Style="{StaticResource BoxStyle}" />
+				<BoxView x:Name="FadeInLeftBox" Style="{StaticResource BoxStyle}" HorizontalOptions="Start" />
 				<Label Text="Fade In Left" Style="{StaticResource LabelStyle}" />
 			</Grid>
 			<Grid>
-				<BoxView x:Name="FadeInRightBox" Style="{StaticResource BoxStyle}" />
+				<BoxView x:Name="FadeInRightBox" Style="{StaticResource BoxStyle}" HorizontalOptions="End" />
 				<Label Text="Fade In Right" Style="{StaticResource LabelStyle}" />
 			</Grid>
 			<Grid>
