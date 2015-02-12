@@ -9,11 +9,16 @@ using Xamarin.Forms;
 
 namespace SampleAnimations
 {
-	public partial class LandingPage : ContentPage
+	public partial class LandingPage
 	{
 		public LandingPage()
 		{
 			InitializeComponent();
+		}
+
+		public void ViewEasingButton_OnClick(object sender, EventArgs args)
+		{
+			Navigation.PushAsync(new EasingPage());
 		}
 
 		public async void DropButton_OnClick(object sender, EventArgs args)

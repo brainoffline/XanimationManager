@@ -7,6 +7,8 @@
 	
 		<Label Text="XanimationManager" VerticalOptions="Start" HorizontalOptions="Center" />
 
+		<Button x:Name="EasingButton" Text="Easing" Clicked="ViewEasingButton_OnClick" />
+
 		<Button x:Name="DropButton" Text="Drop" Clicked="DropButton_OnClick" />
 		<Button x:Name="EasingInButton" Text="Easing In" Clicked="EasingButton_OnClick" />
 		<Button x:Name="EasingOutButton" Text="Easing Out" Clicked="EasingButton_OnClick" />

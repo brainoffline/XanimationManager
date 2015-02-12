@@ -1,0 +1,80 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="SampleAnimations.EasingPage">
+
+	<ContentPage.Resources>
+		<ResourceDictionary>
+			<Style x:Key="BoxStyle" TargetType="BoxView" >
+				<Setter Property="WidthRequest" Value="20" />
+				<Setter Property="HeightRequest" Value="20" />
+				<Setter Property="Color" Value="Red" />
+				<Setter Property="HorizontalOptions" Value="Start" />
+				<Setter Property="VerticalOptions" Value="Center" />
+			</Style>
+
+			<Style x:Key="LabelStyle" TargetType="Label">
+				<Setter Property="HorizontalOptions" Value="Center" />
+			</Style>
+		</ResourceDictionary>
+	</ContentPage.Resources>
+
+	<Grid>
+		<StackLayout Orientation="Vertical" >
+			<Label Text="Easing" HorizontalOptions="Center" FontSize="32" />
+
+			<Grid>
+				<BoxView x:Name="LinearBox" Style="{StaticResource BoxStyle}" />
+				<Label Text="Linear" Style="{StaticResource LabelStyle}" />
+			</Grid>
+			<Grid>
+				<BoxView x:Name="SinusoidalBox" Style="{StaticResource BoxStyle}" />
+				<Label Text="Sinusoidal" Style="{StaticResource LabelStyle}" />
+			</Grid>
+			<Grid>
+				<BoxView x:Name="QuadraticBox" Style="{StaticResource BoxStyle}" />
+				<Label Text="Quadratic" Style="{StaticResource LabelStyle}" />
+			</Grid>
+			<Grid>
+				<BoxView x:Name="CubicBox" Style="{StaticResource BoxStyle}" />
+				<Label Text="Cubic" Style="{StaticResource LabelStyle}" />
+			</Grid>
+			<Grid>
+				<BoxView x:Name="QuarticBox" Style="{StaticResource BoxStyle}" />
+				<Label Text="Quartic" Style="{StaticResource LabelStyle}" />
+			</Grid>
+			<Grid>
+				<BoxView x:Name="QuinticBox" Style="{StaticResource BoxStyle}" />
+				<Label Text="Quintic" Style="{StaticResource LabelStyle}" />
+			</Grid>
+
+			<Grid>
+				<BoxView x:Name="CircularBox" Style="{StaticResource BoxStyle}" />
+				<Label Text="Circular" Style="{StaticResource LabelStyle}" />
+			</Grid>
+			<Grid>
+				<BoxView x:Name="ElasticBox" Style="{StaticResource BoxStyle}" />
+				<Label Text="Elastic" Style="{StaticResource LabelStyle}" />
+			</Grid>
+			<Grid>
+				<BoxView x:Name="BackBox" Style="{StaticResource BoxStyle}" />
+				<Label Text="Back" Style="{StaticResource LabelStyle}" />
+			</Grid>
+			<Grid>
+				<BoxView x:Name="BounceBox" Style="{StaticResource BoxStyle}" />
+				<Label Text="Bounce" Style="{StaticResource LabelStyle}" />
+			</Grid>
+		</StackLayout>
+
+		<Grid VerticalOptions="End" >
+			<Grid.ColumnDefinitions>
+				<ColumnDefinition/>
+				<ColumnDefinition/>
+				<ColumnDefinition/>
+			</Grid.ColumnDefinitions>
+			<Button Grid.Column="0" Text="In" Clicked="InButton_OnClicked" />
+			<Button Grid.Column="1" Text="In/Out" Clicked="InOutButton_OnClicked"/>
+			<Button Grid.Column="2" Text="Out" Clicked="OutButton_OnClicked"/>
+		</Grid>
+	</Grid>
+</ContentPage>

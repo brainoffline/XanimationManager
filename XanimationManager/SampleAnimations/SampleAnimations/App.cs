@@ -12,7 +12,7 @@ namespace SampleAnimations
 		public App()
 		{
 			// The root page of your application
-			MainPage = new LandingPage();
+			MainPage = new NavigationPage( new LandingPage() );
 		}
 
 		protected override void OnStart()

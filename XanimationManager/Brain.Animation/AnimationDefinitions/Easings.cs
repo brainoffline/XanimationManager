@@ -244,11 +244,11 @@ namespace Brain
             return 7.5625 * (x -= (2.625 / 2.75)) * x + 0.984375;
         };
 
-        public static Easing In = new Easing(x => Bounce(1 - x));
+		public static Easing In = new Easing(x => 1 - Bounce(1-x));
         public static Easing Out = new Easing(x => Bounce(x));
         public static Easing InOut = new Easing(x => {
             if (x < 0.5)
-                return Bounce( 1 - (x * 2)) * 0.5;
+                return 0.5 - (Bounce( 1 - (x * 2)) * 0.5);
 
             return Bounce(x * 2 - 1) * 0.5 + 0.5;
         });
