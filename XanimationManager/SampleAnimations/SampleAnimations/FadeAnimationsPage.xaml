@@ -1,0 +1,57 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="SampleAnimations.FadeAnimationsPage">
+	<ContentPage.Resources>
+		<ResourceDictionary>
+			<Style x:Key="BoxStyle" TargetType="BoxView" >
+				<Setter Property="WidthRequest" Value="20" />
+				<Setter Property="HeightRequest" Value="20" />
+				<Setter Property="Color" Value="Red" />
+				<Setter Property="HorizontalOptions" Value="Start" />
+				<Setter Property="VerticalOptions" Value="Center" />
+			</Style>
+
+			<Style x:Key="LabelStyle" TargetType="Label">
+				<Setter Property="HorizontalOptions" Value="Center" />
+			</Style>
+		</ResourceDictionary>
+	</ContentPage.Resources>
+
+	<Grid>
+		<StackLayout Orientation="Vertical" Padding="20,10,20,0" x:Name="Layout" >
+			<Label Text="Fade Animations" HorizontalOptions="Center" FontSize="32" />
+
+			<Grid>
+				<BoxView x:Name="FadeInBox" Style="{StaticResource BoxStyle}" />
+				<Label Text="Fade In" Style="{StaticResource LabelStyle}" />
+			</Grid>
+			<Grid>
+				<BoxView x:Name="FadeOutBox" Style="{StaticResource BoxStyle}" />
+				<Label Text="Fade Out" Style="{StaticResource LabelStyle}" />
+			</Grid>
+
+			<Grid>
+				<BoxView x:Name="FadeInDownBox" Style="{StaticResource BoxStyle}" />
+				<Label Text="Fade In Down" Style="{StaticResource LabelStyle}" />
+			</Grid>
+			<Grid>
+				<BoxView x:Name="FadeInLeftBox" Style="{StaticResource BoxStyle}" />
+				<Label Text="Fade In Left" Style="{StaticResource LabelStyle}" />
+			</Grid>
+			<Grid>
+				<BoxView x:Name="FadeInRightBox" Style="{StaticResource BoxStyle}" />
+				<Label Text="Fade In Right" Style="{StaticResource LabelStyle}" />
+			</Grid>
+			<Grid>
+				<BoxView x:Name="FadeInUpBox" Style="{StaticResource BoxStyle}" />
+				<Label Text="Fade InUp" Style="{StaticResource LabelStyle}" />
+			</Grid>
+		</StackLayout>
+
+		<Button Text="Begin"
+				VerticalOptions="End"
+				Clicked="BeginButton_OnClicked" />
+	</Grid>
+	
+</ContentPage>

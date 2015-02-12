@@ -29,5 +29,16 @@ namespace SampleAnimations
 			DropButton.ClearTransforms();
 		}
 
+		public async void FadeButton_OnClick(object sender, EventArgs args)
+		{
+			await FadeButton.Animate(new FadeOutAnimation());
+
+            await Navigation.PushAsync(new FadeAnimationsPage());
+
+			await Task.Delay(2000);
+
+			FadeButton.ClearTransforms();
+		}
+
 	}
 }
