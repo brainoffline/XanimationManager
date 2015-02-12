@@ -1,0 +1,33 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="SampleAnimations.FlipAnimationsPage">
+	<ContentPage.Resources>
+		<ResourceDictionary>
+			<Style x:Key="BoxStyle" TargetType="BoxView" >
+				<Setter Property="WidthRequest" Value="50" />
+				<Setter Property="HeightRequest" Value="50" />
+				<Setter Property="Color" Value="Red" />
+				<Setter Property="HorizontalOptions" Value="Start" />
+				<Setter Property="VerticalOptions" Value="Center" />
+			</Style>
+
+			<Style x:Key="LabelStyle" TargetType="Label">
+				<Setter Property="HorizontalOptions" Value="Center" />
+			</Style>
+		</ResourceDictionary>
+	</ContentPage.Resources>
+
+	<Grid>
+		<StackLayout Orientation="Vertical" Padding="20,10,20,0" x:Name="Layout" >
+			<Label Text="Flip Animations" HorizontalOptions="Center" FontSize="32" />
+
+			<BoxView x:Name="FlipBox" Style="{StaticResource BoxStyle}" />
+
+		</StackLayout>
+
+		<Button Text="Begin"
+				VerticalOptions="End"
+				Clicked="BeginButton_OnClicked" />
+	</Grid>
+</ContentPage>

@@ -10,6 +10,7 @@
 		<Button x:Name="EasingButton" Text="Easing" Clicked="ViewEasingButton_OnClick" />
 		<Button x:Name="DropButton" Text="Drop" Clicked="DropButton_OnClick" />
 		<Button x:Name="FadeButton" Text="Fade" Clicked="FadeButton_OnClick" />
+		<Button x:Name="FlipButton" Text="Flip" Clicked="FlipButton_OnClick" />
 
 	</StackLayout>
 	
