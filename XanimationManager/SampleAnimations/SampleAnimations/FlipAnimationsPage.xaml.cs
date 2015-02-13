@@ -20,19 +20,24 @@ namespace SampleAnimations
 		public async void BeginButton_OnClicked(object sender, EventArgs args)
 		{
 			if (animating) return;
+
 			animating = true;
-			await FlipBox.Animate(new FlipInXAnimation());
-			await FlipBox.Animate(new FlipOutXAnimation());
+
+			await Task.WhenAll(new[] {
+					FlipBoxX.Animate(new FlipInXAnimation()),
+					FlipBoxY.Animate(new FlipInYAnimation()),
+				});
+			await Task.Delay(250);
+
+			await Task.WhenAll(new[] {
+					FlipBoxX.Animate(new FlipOutXAnimation()),
+					FlipBoxY.Animate(new FlipOutYAnimation()),
+				});
 
 			await Task.Delay(500);
-			FlipBox.ClearTransforms();
+			FlipBoxX.ClearTransforms();
+			FlipBoxY.ClearTransforms();
 
-			await FlipBox.Animate(new FlipInYAnimation());
-			await FlipBox.Animate(new FlipOutYAnimation());
-
-			await Task.Delay(500);
-
-			FlipBox.ClearTransforms();
 			animating = false;
 		}
 

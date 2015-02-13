@@ -26,10 +26,12 @@ namespace Brain
     {
         public bool Reverse { get; set; }
         public double Centre { get; set; }
+		public Easing Easing { get; set; }
 
-        public FlipInXAnimation()
+		public FlipInXAnimation()
         {
             OpacityFromZero = true;
+			Easing = Easings.QuinticOut;
         }
 
         public override Animation CreateAnimation(VisualElement element)
@@ -37,20 +39,8 @@ namespace Brain
             var animation = new Animation();
 
             // CentreOfRotation = Centre
-            animation.WithConcurrent( (f) => element.Opacity = f, 0, 1, Easing.CubicOut );
-
-            if (Reverse)
-            {
-                animation.WithConcurrent((f) => element.RotationX = f, -90, 10, null, 0, 0.4);
-                animation.WithConcurrent((f) => element.RotationX = f, 10, -10, null, 0.4, 0.7);
-                animation.WithConcurrent((f) => element.RotationX = f, -10, 0, null, 0.7, 1);
-            }
-            else
-            {
-                animation.WithConcurrent((f) => element.RotationX = f, 90, -10, null, 0, 0.4);
-                animation.WithConcurrent((f) => element.RotationX = f, -10, 10, null, 0.4, 0.7);
-                animation.WithConcurrent((f) => element.RotationX = f, 10, 0, null, 0.7, 1);
-            }
+            animation.WithConcurrent( (f) => element.Opacity = f, 0.5, 1);
+            animation.WithConcurrent((f) => element.RotationX = f, Reverse ? -90 : 90, 0, Easing);
 
             return animation;
         }
@@ -60,10 +50,12 @@ namespace Brain
     {
         public bool Reverse { get; set; }
         public double Centre { get; set; }
+		public Easing Easing { get; set; }
 
-        public FlipOutXAnimation()
+		public FlipOutXAnimation()
         {
             DurationMS = 400;
+			Easing = Easings.QuinticOut;
         }
 
         public override Animation CreateAnimation(VisualElement element)
@@ -71,8 +63,8 @@ namespace Brain
             var animation = new Animation();
 
             // CentreOfRotation = Centre
-            animation.WithConcurrent((f) => element.RotationX = f, 0, Reverse ? 90 : -90, Easing.CubicOut);
-            animation.WithConcurrent((f) => element.Opacity = f, 1, 0, Easing.CubicIn);
+            animation.WithConcurrent((f) => element.RotationX = f, 0, Reverse ? 90 : -90, Easing);
+            animation.WithConcurrent((f) => element.Opacity = f, 1, 0);
 
             return animation;
         }
@@ -82,10 +74,12 @@ namespace Brain
     {
         public bool Reverse { get; set; }
         public Double Centre { get; set; }
+		public Easing Easing { get; set; }
 
-        public FlipInYAnimation()
+		public FlipInYAnimation()
         {
             OpacityFromZero = true;
+			Easing = Easings.QuinticOut;
         }
 
         public override Animation CreateAnimation(VisualElement element)
@@ -93,20 +87,8 @@ namespace Brain
             var animation = new Animation();
 
             // CentreOfRotation = Centre
-            animation.WithConcurrent((f) => element.Opacity = f, 0, 1, Easing.CubicOut);
-
-            if (Reverse)
-            {
-                animation.WithConcurrent((f) => element.RotationY = f, -90, 10, null, 0, 0.4);
-                animation.WithConcurrent((f) => element.RotationY = f, 10, -10, null, 0.4, 0.7);
-                animation.WithConcurrent((f) => element.RotationY = f, -10, 0, null, 0.7, 1);
-            }
-            else
-            {
-                animation.WithConcurrent((f) => element.RotationY = f, 90, -10, null, 0, 0.4);
-                animation.WithConcurrent((f) => element.RotationY = f, -10, 10, null, 0.4, 0.7);
-                animation.WithConcurrent((f) => element.RotationY = f, 10, 0, null, 0.7, 1);
-            }
+            animation.WithConcurrent((f) => element.Opacity = f, 0.5, 1);
+            animation.WithConcurrent((f) => element.RotationY = f, Reverse ? -90 : 90, 0, Easing);
 
             return animation;
         }
@@ -117,10 +99,12 @@ namespace Brain
         public FlipOutYAnimation()
         {
             DurationMS = 400;
+			Easing = Easings.QuinticOut;
         }
 
         public bool Reverse { get; set; }
         public Double Centre { get; set; }
+		public Easing Easing { get; set; }
 
 
         public override Animation CreateAnimation(VisualElement element)
@@ -128,8 +112,8 @@ namespace Brain
             var animation = new Animation();
 
             // CentreOfRotation = Centre
-            animation.WithConcurrent((f) => element.RotationY = f, 0, Reverse ? 90 : -90, Easing.CubicOut);
-            animation.WithConcurrent((f) => element.Opacity = f, 1, 0, Easing.CubicIn);
+            animation.WithConcurrent((f) => element.RotationY = f, 0, Reverse ? 90 : -90, Easing);
+            animation.WithConcurrent((f) => element.Opacity = f, 1, 0);
 
             return animation;
         }

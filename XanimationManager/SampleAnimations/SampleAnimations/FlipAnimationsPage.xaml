@@ -5,10 +5,10 @@
 	<ContentPage.Resources>
 		<ResourceDictionary>
 			<Style x:Key="BoxStyle" TargetType="BoxView" >
-				<Setter Property="WidthRequest" Value="50" />
-				<Setter Property="HeightRequest" Value="50" />
+				<Setter Property="WidthRequest" Value="100" />
+				<Setter Property="HeightRequest" Value="100" />
 				<Setter Property="Color" Value="Red" />
-				<Setter Property="HorizontalOptions" Value="Start" />
+				<Setter Property="HorizontalOptions" Value="Center" />
 				<Setter Property="VerticalOptions" Value="Center" />
 			</Style>
 
@@ -22,7 +22,8 @@
 		<StackLayout Orientation="Vertical" Padding="20,10,20,0" x:Name="Layout" >
 			<Label Text="Flip Animations" HorizontalOptions="Center" FontSize="32" />
 
-			<BoxView x:Name="FlipBox" Style="{StaticResource BoxStyle}" />
+			<BoxView x:Name="FlipBoxX" Style="{StaticResource BoxStyle}" HorizontalOptions="Center" />
+			<BoxView x:Name="FlipBoxY" Style="{StaticResource BoxStyle}" HorizontalOptions="Center" />
 
 		</StackLayout>
 
