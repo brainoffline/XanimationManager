@@ -38,10 +38,10 @@ namespace Brain
 			DistanceY = 0;
 		}
 
-		public override Animation CreateAnimation(VisualElement element)
+		public override Xamarin.Forms.Animation CreateAnimation(VisualElement element)
 		{
 			var translation = GetTranslation(element);
-			var animation = new Animation();
+			var animation = new Xamarin.Forms.Animation();
 
 			if (FromZDirection != ZDirection.Steady)
 			{
@@ -107,10 +107,10 @@ namespace Brain
             DistanceY = 0;
         }
 
-        public override Animation CreateAnimation(VisualElement element)
+        public override Xamarin.Forms.Animation CreateAnimation(VisualElement element)
         {
             var translation = GetTranslation(element);
-            var animation = new Animation();
+            var animation = new Xamarin.Forms.Animation();
 
             if (FromDirection != ZDirection.Steady)
             {
@@ -218,10 +218,10 @@ namespace Brain
             DistanceY = 0;
         }
 
-        public override Animation CreateAnimation(VisualElement element)
+        public override Xamarin.Forms.Animation CreateAnimation(VisualElement element)
         {
             var translation = GetTranslation(element);
-            var animation = new Animation();
+            var animation = new Xamarin.Forms.Animation();
 
             element.Opacity = 1;
             animation.WithConcurrent(

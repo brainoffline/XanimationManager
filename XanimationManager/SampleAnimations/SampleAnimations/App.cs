@@ -29,5 +29,9 @@ namespace SampleAnimations
 		{
 			// Handle when your app resumes
 		}
+
+		public static void OnUnhandledException(Exception ex)
+		{
+		}
 	}
 }

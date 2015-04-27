@@ -5,9 +5,9 @@ namespace Brain
 {
     public class FlipAnimation : AnimationDefinition
     {
-        public override Animation CreateAnimation(VisualElement element)
+        public override Xamarin.Forms.Animation CreateAnimation(VisualElement element)
         {
-            var animation = new Animation();
+            var animation = new Xamarin.Forms.Animation();
 
             animation.WithConcurrent((f) => element.RotationY = f,   0, 170, null, 0, 0.4);
             animation.WithConcurrent((f) => element.RotationY = f, 170, 190, null, 0.4, 0.5);
@@ -34,9 +34,9 @@ namespace Brain
 			Easing = Easings.QuinticOut;
         }
 
-        public override Animation CreateAnimation(VisualElement element)
+        public override Xamarin.Forms.Animation CreateAnimation(VisualElement element)
         {
-            var animation = new Animation();
+            var animation = new Xamarin.Forms.Animation();
 
             // CentreOfRotation = Centre
             animation.WithConcurrent( (f) => element.Opacity = f, 0.5, 1);
@@ -58,9 +58,9 @@ namespace Brain
 			Easing = Easings.QuinticOut;
         }
 
-        public override Animation CreateAnimation(VisualElement element)
+        public override Xamarin.Forms.Animation CreateAnimation(VisualElement element)
         {
-            var animation = new Animation();
+            var animation = new Xamarin.Forms.Animation();
 
             // CentreOfRotation = Centre
             animation.WithConcurrent((f) => element.RotationX = f, 0, Reverse ? 90 : -90, Easing);
@@ -82,9 +82,9 @@ namespace Brain
 			Easing = Easings.QuinticOut;
         }
 
-        public override Animation CreateAnimation(VisualElement element)
+        public override Xamarin.Forms.Animation CreateAnimation(VisualElement element)
         {
-            var animation = new Animation();
+            var animation = new Xamarin.Forms.Animation();
 
             // CentreOfRotation = Centre
             animation.WithConcurrent((f) => element.Opacity = f, 0.5, 1);
@@ -107,9 +107,9 @@ namespace Brain
 		public Easing Easing { get; set; }
 
 
-        public override Animation CreateAnimation(VisualElement element)
+        public override Xamarin.Forms.Animation CreateAnimation(VisualElement element)
         {
-            var animation = new Animation();
+            var animation = new Xamarin.Forms.Animation();
 
             // CentreOfRotation = Centre
             animation.WithConcurrent((f) => element.RotationY = f, 0, Reverse ? 90 : -90, Easing);

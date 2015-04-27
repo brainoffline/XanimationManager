@@ -22,19 +22,21 @@ namespace SampleAnimations
 			if (animating) return;
 			animating = true;
 
+			uint duration = 1000;
+
 			var tasks = new List<Task> {
-				BounceInBox.Animate(new BounceInAnimation ()),
-				BounceOutBox.Animate(new BounceOutAnimation ()),
+				BounceInBox.Animate(new BounceInAnimation () { DurationMS = duration }),
+				BounceOutBox.Animate(new BounceOutAnimation (){ DurationMS = duration }),
 
-				BounceInDownBox.Animate(new BounceInDownAnimation ()),
-				BounceInLeftBox.Animate(new BounceInLeftAnimation ()),
-				BounceInRightBox.Animate(new BounceInRightAnimation ()),
-				BounceInUpBox.Animate(new BounceInUpAnimation ()),
+				BounceInDownBox.Animate(new BounceInDownAnimation (){ DurationMS = duration }),
+				BounceInLeftBox.Animate(new BounceInLeftAnimation (){ DurationMS = duration }),
+				BounceInRightBox.Animate(new BounceInRightAnimation (){ DurationMS = duration }),
+				BounceInUpBox.Animate(new BounceInUpAnimation (){ DurationMS = duration }),
 
-				CircleInTopLeftBox.Animate(new CircleInAnimation { FromDirection = CircleDirection.TopLeft }),
-				CircleInTopRightBox.Animate(new CircleInAnimation { FromDirection = CircleDirection.TopRight }),
-				CircleInBottomLeftBox.Animate(new CircleInAnimation { FromDirection = CircleDirection.BottomLeft }),
-				CircleInBottomRightBox.Animate(new CircleInAnimation { FromDirection = CircleDirection.BottomRight }),
+				CircleInTopLeftBox.Animate(new CircleInAnimation { FromDirection = CircleDirection.TopLeft, DurationMS = duration}),
+				CircleInTopRightBox.Animate(new CircleInAnimation { FromDirection = CircleDirection.TopRight, DurationMS = duration }),
+				CircleInBottomLeftBox.Animate(new CircleInAnimation { FromDirection = CircleDirection.BottomLeft, DurationMS = duration }),
+				CircleInBottomRightBox.Animate(new CircleInAnimation { FromDirection = CircleDirection.BottomRight, DurationMS = duration }),
 			};
 
 			await Task.WhenAll(tasks);

@@ -44,6 +44,7 @@
     <Compile Include="AnimationDefinitions\RatateAnimations.cs" />
     <Compile Include="AnimationDefinitions\ScaleAnimations.cs" />
     <Compile Include="AnimationDefinitions\TurnstileAnimations.cs" />
+    <Compile Include="Parallax.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

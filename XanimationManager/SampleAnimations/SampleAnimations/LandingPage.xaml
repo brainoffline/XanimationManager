@@ -12,6 +12,7 @@
 		<Button x:Name="FadeButton" Text="Fade" Clicked="FadeButton_OnClick" />
 		<Button x:Name="BounceButton" Text="Bounce" Clicked="BounceButton_OnClick" />
 		<Button x:Name="FlipButton" Text="Flip" Clicked="FlipButton_OnClick" />
+		<Button x:Name="ParallaxButton" Text="Parallax" Clicked="ParallaxButton_OnClick" />
 
 	</StackLayout>
 	

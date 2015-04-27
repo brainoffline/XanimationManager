@@ -25,7 +25,7 @@ namespace Brain
             Easing = Easing.SinIn;
         }
 
-        public override Animation CreateAnimation(VisualElement element)
+        public override Xamarin.Forms.Animation CreateAnimation(VisualElement element)
         {
             double startRotation = 0.0;
             double endRotation;
@@ -39,7 +39,7 @@ namespace Brain
             else
                 endRotation = startRotation + 360.0;
 
-            var animation = new Animation();
+            var animation = new Xamarin.Forms.Animation();
 
             element.AnchorX = 0.5;
             element.AnchorY = 0.5;
@@ -60,9 +60,9 @@ namespace Brain
             OpacityFromZero = true;
         }
 
-        public override Animation CreateAnimation(VisualElement element)
+        public override Xamarin.Forms.Animation CreateAnimation(VisualElement element)
         {
-            var animation = new Animation();
+            var animation = new Xamarin.Forms.Animation();
 
             if (RotateDirection == RotateAnimationDirection.RotateUp)
             {
@@ -94,9 +94,9 @@ namespace Brain
             DurationMS = 400;
         }
 
-        public override Animation CreateAnimation(VisualElement element)
+        public override Xamarin.Forms.Animation CreateAnimation(VisualElement element)
         {
-            var animation = new Animation();
+            var animation = new Xamarin.Forms.Animation();
 
             if (RotateDirection == RotateAnimationDirection.RotateUp)
             {

@@ -7,6 +7,7 @@ using System.Windows.Navigation;
 using Microsoft.Phone.Controls;
 using Microsoft.Phone.Shell;
 using SampleAnimations.WinPhone.Resources;
+using System.Threading.Tasks;
 
 namespace SampleAnimations.WinPhone
 {
@@ -25,6 +26,7 @@ namespace SampleAnimations.WinPhone
 		{
 			// Global handler for uncaught exceptions.
 			UnhandledException += Application_UnhandledException;
+			TaskScheduler.UnobservedTaskException += TaskScheduler_UnobservedTaskException;
 
 			// Standard XAML initialization
 			InitializeComponent();
@@ -56,6 +58,13 @@ namespace SampleAnimations.WinPhone
 			}
 
 		}
+
+		private void TaskScheduler_UnobservedTaskException(object sender, UnobservedTaskExceptionEventArgs e)
+		{
+			e.SetObserved();
+			SampleAnimations.App.OnUnhandledException(e.Exception);
+		}
+
 
 		// Code to execute when the application is launching (eg, from Start)
 		// This code will not execute when the application is reactivated
@@ -94,6 +103,8 @@ namespace SampleAnimations.WinPhone
 		// Code to execute on Unhandled Exceptions
 		private void Application_UnhandledException(object sender, ApplicationUnhandledExceptionEventArgs e)
 		{
+			SampleAnimations.App.OnUnhandledException(e.ExceptionObject as Exception);
+
 			if (Debugger.IsAttached)
 			{
 				// An unhandled exception has occurred; break into the debugger

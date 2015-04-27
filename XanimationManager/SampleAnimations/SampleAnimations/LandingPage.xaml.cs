@@ -62,5 +62,10 @@ namespace SampleAnimations
 			FlipButton.ClearTransforms();
 		}
 
+		public async void ParallaxButton_OnClick(object sender, EventArgs args)
+		{
+			await Navigation.PushAsync(new ParallaxPage());
+		}
+
 	}
 }

@@ -17,9 +17,9 @@ namespace Brain
             OpacityFromZero = true;
         }
 
-        public override Animation CreateAnimation(VisualElement element)
+        public override Xamarin.Forms.Animation CreateAnimation(VisualElement element)
         {
-            var animation = new Animation();
+            var animation = new Xamarin.Forms.Animation();
 
             animation.WithConcurrent((f) => element.Opacity = f, 0, 1, null, 0, 0.5);
             animation.WithConcurrent((f) => element.Scale = f, StartScale, 1, Easing.CubicOut);
@@ -38,9 +38,9 @@ namespace Brain
             DurationMS = 400;
         }
 
-        public override Animation CreateAnimation(VisualElement element)
+        public override Xamarin.Forms.Animation CreateAnimation(VisualElement element)
         {
-            var animation = new Animation();
+            var animation = new Xamarin.Forms.Animation();
 
             animation.WithConcurrent((f) => element.Opacity = f, 1, 0, null, 0.5, 1);
             animation.WithConcurrent((f) => element.Scale = f, element.Scale, EndScale, Easing.CubicIn);
@@ -59,7 +59,7 @@ namespace Brain
             DurationMS = 400;
         }
 
-        public override Animation CreateAnimation(VisualElement element)
+        public override Xamarin.Forms.Animation CreateAnimation(VisualElement element)
         {
             var toBounds = element.Bounds;
             var fromBounds = FromElement.Bounds;
@@ -68,7 +68,7 @@ namespace Brain
             element.AnchorX = 0;
             element.AnchorY = 0;
 
-            var animation = new Animation();
+            var animation = new Xamarin.Forms.Animation();
 
             animation.WithConcurrent((f) => element.Opacity = f, 0, 1, null, 0, 0.25);
             animation.WithConcurrent((f) =>

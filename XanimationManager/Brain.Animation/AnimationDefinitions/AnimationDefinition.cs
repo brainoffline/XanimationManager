@@ -40,6 +40,6 @@ namespace Brain
             return new Tuple<double, double>(x, y);
         }
 
-        public abstract Animation CreateAnimation(VisualElement element);
+        public abstract Xamarin.Forms.Animation CreateAnimation(VisualElement element);
     }
 }

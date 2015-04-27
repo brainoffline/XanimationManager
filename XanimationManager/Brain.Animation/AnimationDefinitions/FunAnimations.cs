@@ -26,9 +26,9 @@ namespace Brain
             Distance = 700;
         }
 
-        public override Animation CreateAnimation(VisualElement element)
+        public override Xamarin.Forms.Animation CreateAnimation(VisualElement element)
         {
-            var animation = new Animation();
+            var animation = new Xamarin.Forms.Animation();
             if (Side == Side.Left)
             {
 				element.AnchorX = AnchorX.HasValue ? AnchorX.Value : 0;

@@ -14,9 +14,9 @@ namespace Brain.AnimationDefinitions
             DurationMS = 300;
         }
 
-        public override Animation CreateAnimation(VisualElement element)
+        public override Xamarin.Forms.Animation CreateAnimation(VisualElement element)
         {
-            var animation = new Animation();
+            var animation = new Xamarin.Forms.Animation();
 
             // Center of rotation X = 0
             animation.WithConcurrent((f) => element.RotationY = f, 0, -80, Easing.CubicOut);
@@ -34,9 +34,9 @@ namespace Brain.AnimationDefinitions
             DurationMS = 300;
         }
 
-        public override Animation CreateAnimation(VisualElement element)
+        public override Xamarin.Forms.Animation CreateAnimation(VisualElement element)
         {
-            var animation = new Animation();
+            var animation = new Xamarin.Forms.Animation();
 
             // Center of rotation X = 0
             animation.WithConcurrent((f) => element.RotationY = f, 80, 0, Easing.CubicOut);
@@ -53,9 +53,9 @@ namespace Brain.AnimationDefinitions
             DurationMS = 300;
         }
 
-        public override Animation CreateAnimation(VisualElement element)
+        public override Xamarin.Forms.Animation CreateAnimation(VisualElement element)
         {
-            var animation = new Animation();
+            var animation = new Xamarin.Forms.Animation();
 
             // Center of rotation X = 1
             animation.WithConcurrent((f) => element.RotationY = f, -80, 0, Easing.CubicOut);
@@ -72,9 +72,9 @@ namespace Brain.AnimationDefinitions
             DurationMS = 300;
         }
 
-        public override Animation CreateAnimation(VisualElement element)
+        public override Xamarin.Forms.Animation CreateAnimation(VisualElement element)
         {
-            var animation = new Animation();
+            var animation = new Xamarin.Forms.Animation();
 
             // Center of rotation X = 1
             animation.WithConcurrent((f) => element.RotationY = f, 0, 80, Easing.CubicOut);

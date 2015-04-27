@@ -18,25 +18,25 @@ namespace Brain
             OpacityFromZero = true;
         }
 
-        public override Animation CreateAnimation(VisualElement element)
+        public override Xamarin.Forms.Animation CreateAnimation(VisualElement element)
         {
-            var animation = new Animation();
+            var animation = new Xamarin.Forms.Animation();
 
-            animation.WithConcurrent((f) => element.Opacity = f);
+            animation.WithConcurrent((f) => element.Opacity = f,0,1, Easings.CubicOut);
 
             if (Math.Abs(DistanceX) > 0)
             {
                 animation.WithConcurrent(
                     (f) => element.TranslationX = f,
                     element.TranslationX + DistanceX, element.TranslationX,
-                    Easing.CubicOut);
+                    Easings.CubicOut, 0, 1);
             }
             if (Math.Abs(DistanceY) > 0)
             {
                 animation.WithConcurrent(
                     (f) => element.TranslationY = f,
                     element.TranslationY + DistanceY, element.TranslationY,
-                    Easing.CubicOut);
+                    Easings.CubicOut, 0, 1);
             }
 
             return animation;
@@ -53,9 +53,9 @@ namespace Brain
             DurationMS = 400;
         }
 
-        public override Animation CreateAnimation(VisualElement element)
+        public override Xamarin.Forms.Animation CreateAnimation(VisualElement element)
         {
-            var animation = new Animation();
+            var animation = new Xamarin.Forms.Animation();
 
             animation.WithConcurrent(
                 (f) => element.Opacity = f,
@@ -89,7 +89,7 @@ namespace Brain
 
         public FadeInUpAnimation()
         {
-            Distance = 20;
+            Distance = 100;
         }
     }
 
@@ -104,7 +104,7 @@ namespace Brain
 
         public FadeInDownAnimation()
         {
-            Distance = -20;
+            Distance = -100;
         }
     }
 
@@ -119,7 +119,7 @@ namespace Brain
 
         public FadeInLeftAnimation()
         {
-            Distance = 20;
+            Distance = 100;
         }
     }
 
@@ -134,7 +134,7 @@ namespace Brain
 
         public FadeInRightAnimation()
         {
-            Distance = -20;
+            Distance = -100;
         }
     }
 

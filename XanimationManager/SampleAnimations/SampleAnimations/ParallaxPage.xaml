@@ -1,0 +1,39 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="SampleAnimations.ParallaxPage">
+
+	<ContentPage.Resources>
+		<ResourceDictionary>
+			<Style x:Key="BoxStyle" TargetType="BoxView" >
+				<Setter Property="WidthRequest" Value="40" />
+				<Setter Property="HeightRequest" Value="40" />
+				<Setter Property="Color" Value="Red" />
+				<Setter Property="HorizontalOptions" Value="Center" />
+				<Setter Property="VerticalOptions" Value="Center" />
+			</Style>
+
+			<Style x:Key="LabelStyle" TargetType="Label">
+				<Setter Property="HorizontalOptions" Value="Center" />
+			</Style>
+		</ResourceDictionary>
+	</ContentPage.Resources>
+
+	<Grid>
+		<StackLayout Orientation="Vertical" Padding="0,10,0,0" x:Name="Layout" >
+			<Label Text="Parallax Animations" HorizontalOptions="Center" FontSize="32" />
+
+			<BoxView x:Name="Box1" Style="{StaticResource BoxStyle}" HorizontalOptions="Start"  />
+			<BoxView x:Name="Box2" Style="{StaticResource BoxStyle}" HorizontalOptions="Start" TranslationY="-20"/>
+			<BoxView x:Name="Box3" Style="{StaticResource BoxStyle}" HorizontalOptions="Start" TranslationY="-40"/>
+			<BoxView x:Name="Box4" Style="{StaticResource BoxStyle}" HorizontalOptions="Start" TranslationY="-60"/>
+			<BoxView x:Name="Box5" Style="{StaticResource BoxStyle}" HorizontalOptions="Start" TranslationY="-80"/>
+		</StackLayout>
+
+		<StackLayout VerticalOptions="End">
+			<Button Text="Step" Clicked="StepButton_OnClicked" />
+			<Button Text="Auto" Clicked="AutoButton_OnClicked" />
+		</StackLayout>
+	</Grid>
+
+</ContentPage>
